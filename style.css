@@ -92,7 +92,7 @@ footer {
     padding-bottom: 1.5rem;
 }
 
-.add-book-form {
+.book-form {
     display: flex;
     flex-direction: column;
     gap: 20px;

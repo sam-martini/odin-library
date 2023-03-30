@@ -1,11 +1,10 @@
-const library = document.querySelector('.book-grid');
-
-
-// Show and hide the form element.
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.add-btn');
 const closeModal = document.querySelector('.close-btn');
+const library = document.querySelector('.book-grid');
+const bookForm = document.querySelector('.book-form');
 
+// Show and hide the form element.
 openModal.addEventListener('click', () => {
     modal.showModal();
 });
@@ -60,6 +59,19 @@ function displayBooks() {
     });
 }
 
-addBookToLibrary('Dragon Ball', 'Akira Toriyama', 192, true);
-displayBooks();
-console.log(myLibrary);
+// Add an event listener to the submit button on the add book form.
+// Listen for submit and call the 'addBookToLibrary' function, passing in the form inputs.
+// Close the modal and reset the form.
+bookForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Prevent the form from submitting and refreshing the page
+
+    const title = document.querySelector('.title').value;
+    const author = document.querySelector('.author').value;
+    const pages = document.querySelector('.pages').value;
+
+    addBookToLibrary(title, author, pages, false); // Default to unread for now.
+
+    bookForm.reset();
+    modal.close();
+    displayBooks();
+});
