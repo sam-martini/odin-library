@@ -7,6 +7,7 @@
     <title>Library</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -37,6 +38,17 @@
         </div>
     </main>
     <footer>hi, i'm sam.</footer>
+
+    <dialog class="modal">
+        <p>Add a new book..</p>
+        <form class="add-book-form" action="">
+            <input type="text" placeholder="Title" required maxlength="100">
+            <input type="text" placeholder="Author" required maxlength="100">
+            <input type="number" placeholder="Pages" max="10000">
+            <button type="submit">Submit</button>
+            <button class="close-btn">Close</button>
+        </form>
+    </dialog>
 </body>
 
 </html>
