@@ -1,3 +1,6 @@
+const library = document.querySelector('.book-grid');
+
+
 // Show and hide the form element.
 const modal = document.querySelector('.modal');
 const openModal = document.querySelector('.add-btn');
@@ -32,5 +35,31 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-addBookToLibrary('DragonBall', 'Akira Toriyama', 192, true);
+// Write a 'displayBooks' function that loops through the 'myLibrary' array and creates the HTML elements for each book.
+// Give each book a class of 'book-card'.
+// Append the elements to the DOM, inside of the main grid section.
+function displayBooks() {
+    library.innerHTML = '';
+    myLibrary.forEach((book) => {
+        const bookCard = document.createElement('div');
+        bookCard.classList.add('book-card');
+
+        const title = document.createElement('p');
+        title.textContent = book.title;
+        bookCard.appendChild(title);
+
+        const author = document.createElement('p');
+        author.textContent = book.author;
+        bookCard.appendChild(author);
+
+        const pages = document.createElement('p');
+        pages.textContent = `${book.pages} pages`;
+        bookCard.appendChild(pages);
+
+        library.appendChild(bookCard);
+    });
+}
+
+addBookToLibrary('Dragon Ball', 'Akira Toriyama', 192, true);
+displayBooks();
 console.log(myLibrary);
