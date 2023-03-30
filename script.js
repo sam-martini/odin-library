@@ -34,12 +34,21 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-// Write a 'displayBooks' function that loops through the 'myLibrary' array and creates the HTML elements for each book.
+// Write a function that removes a book object from the array at specified index.
+function removeBook(index) {
+    myLibrary.splice(index, 1); // Pass in the index and specify just one element to be removed.
+    displayBooks();
+}
+
+// Write a 'displayBooks' function that loops through the 'myLibrary' array and create
+// the elements for each book title, author and pages.
 // Give each book a class of 'book-card'.
+// Create a remove button for each card that calls the remove book function with the
+// books index.
 // Append the elements to the DOM, inside of the main grid section.
 function displayBooks() {
     library.innerHTML = '';
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book, index) => {
         const bookCard = document.createElement('div');
         bookCard.classList.add('book-card');
 
@@ -54,6 +63,13 @@ function displayBooks() {
         const pages = document.createElement('p');
         pages.textContent = `${book.pages} pages`;
         bookCard.appendChild(pages);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => {
+            removeBook(index);
+        });
+        bookCard.appendChild(removeBtn);
 
         library.appendChild(bookCard);
     });
