@@ -40,6 +40,11 @@ function removeBook(index) {
     displayBooks();
 }
 
+function toggleReadStatus(index) {
+    myLibrary[index].read = !myLibrary[index].read;
+    displayBooks();
+}
+
 // Write a 'displayBooks' function that loops through the 'myLibrary' array and create
 // the elements for each book title, author and pages.
 // Give each book a class of 'book-card'.
@@ -54,23 +59,33 @@ function displayBooks() {
 
         const title = document.createElement('p');
         title.textContent = book.title;
-        bookCard.appendChild(title);
 
         const author = document.createElement('p');
         author.textContent = book.author;
-        bookCard.appendChild(author);
 
         const pages = document.createElement('p');
         pages.textContent = `${book.pages} pages`;
-        bookCard.appendChild(pages);
 
         const removeBtn = document.createElement('button');
-        removeBtn.textContent = 'Remove';
+        removeBtn.classList.add('remove-btn');
+        removeBtn.textContent = 'x';
         removeBtn.addEventListener('click', () => {
             removeBook(index);
         });
-        bookCard.appendChild(removeBtn);
 
+        const readStatusBtn = document.createElement('button');
+        readStatusBtn.classList.add('read-status-btn');
+        readStatusBtn.textContent = book.read ? 'Read!' : 'Unread';
+        readStatusBtn.addEventListener('click', () => {
+            toggleReadStatus(index);
+        })
+
+
+        bookCard.appendChild(removeBtn);
+        bookCard.appendChild(title);
+        bookCard.appendChild(author);
+        bookCard.appendChild(pages);
+        bookCard.appendChild(readStatusBtn);
         library.appendChild(bookCard);
     });
 }
@@ -84,10 +99,15 @@ bookForm.addEventListener('submit', (e) => {
     const title = document.querySelector('.title').value;
     const author = document.querySelector('.author').value;
     const pages = document.querySelector('.pages').value;
+    const read = document.getElementById('read').checked;
 
-    addBookToLibrary(title, author, pages, false); // Default to unread for now.
+    addBookToLibrary(title, author, pages, read);
 
     bookForm.reset();
     modal.close();
     displayBooks();
 });
+
+
+addBookToLibrary('Dragon Ball', 'Akira Toriyama', 192, true);
+displayBooks();
