@@ -64,9 +64,11 @@ function displayBooks() {
         author.textContent = book.author;
 
         const pages = document.createElement('p');
-        pages.textContent = `${book.pages} pages`;
+        if (book.pages > 0) {
+            pages.textContent = `${book.pages} pages`;
+        };
 
-        const removeBtn = document.createElement('button');
+        const removeBtn = document.createElement('div');
         removeBtn.classList.add('remove-btn');
         removeBtn.textContent = 'x';
         removeBtn.addEventListener('click', () => {
