@@ -26,12 +26,15 @@
             <input class="title" type="text" placeholder="Title" required maxlength="100">
             <input class="author" type="text" placeholder="Author" required maxlength="100">
             <input class="pages" type="number" placeholder="Pages" max="10000">
-            <label for="read">Have you read this book?</label>
-            <input type="checkbox" name="read" id="read">
+            <label class="toggle" for="read">Have you read this book?
+            <input class="toggle-checkbox" type="checkbox" name="read" id="read">
+            <div class="toggle-switch"></div>
+            </label>
             <button type="submit">Submit</button>
             <button class="close-btn">Close</button>
         </form>
     </dialog>
+    
 </body>
 
 </html>

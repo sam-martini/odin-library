@@ -106,7 +106,7 @@ footer {
     height: 55%;
     max-width: 450px;
     padding: 2rem 1rem;
-    border: 2px solid var(--font-grey);
+    border: 5px solid var(--font-grey);
     border-radius: 15px;
     box-shadow: 0px 1px 5px 0px rgba(128, 76, 177, 0.172);
     background-color: var(--grey);
@@ -121,6 +121,9 @@ footer {
     flex-direction: column;
     gap: 20px;
 }
+.book-form input:nth-of-type(3) {
+    margin-bottom: 1rem;
+}
 .book-form input {
     border: none;
     border-bottom: 1px dashed #83A4C5;
@@ -130,6 +133,63 @@ footer {
 .book-form input:focus {
     outline: none;
 }
+
+
+
+
+
+.toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.toggle-switch {
+    display: inline-block;
+    background: #ccc;
+    border-radius: 16px;
+    width: 54px;
+    height: 28px;
+    position: relative;
+    vertical-align: middle;
+    transition: background 0.25s;
+}
+
+.toggle-switch:before,
+.toggle-switch:after {
+    content: "";
+}
+
+.toggle-switch:before {
+    display: block;
+    background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: left 0.25s;
+}
+
+.toggle:hover .toggle-switch:before {
+    background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked+.toggle-switch {
+    background: #56c080;
+}
+.toggle-checkbox:checked+.toggle-switch:before {
+    left: 30px;
+}
+.toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+
 
 
 
