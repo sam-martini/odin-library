@@ -71,7 +71,7 @@ function displayBooks() {
             readStatusBtn.textContent = 'Read!';
             bookCard.classList.add('read');
         } else {
-            readStatusBtn.textContent = 'Unead';
+            readStatusBtn.textContent = 'Unread';
             bookCard.classList.add('unread');
         }
         readStatusBtn.addEventListener('click', () => {
