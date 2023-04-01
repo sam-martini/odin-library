@@ -4,21 +4,12 @@ const closeModal = document.querySelector('.close-btn');
 const library = document.querySelector('.book-grid');
 const bookForm = document.querySelector('.book-form');
 
-// Show and hide the form element.
-openModal.addEventListener('click', () => {
-    modal.showModal();
-});
 
-closeModal.addEventListener('click', () => {
-    modal.close();
-});
-
-
-// Create an empty array 'myLibrary' that will store the book objects.
+// Empty array that will store the book objects.
 let myLibrary = [];
 
-// Define a 'Book' constructor function that takes in arguments for a title, author, number of pages and if it has been read or not.
-// Inside the constructor, assign each argument to a corresponding property on the newly created 'Book' object.
+// Defines a 'Book' constructor function that takes in arguments for a title, author, number of pages and if it has been read or not.
+// Assign each argument to a corresponding property on the newly created 'Book' object.
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -26,7 +17,7 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-// Write a 'addBookToLibrary' function that takes arguments for the title, author, number of pages and read-status.
+// Take arguments for the title, author, number of pages and read-status.
 // Use the 'Book' constructor to create the new 'Book' object with the input.
 // Push the new 'Book' object to the 'myLibrary' array.
 function addBookToLibrary(title, author, pages, read) {
@@ -34,22 +25,21 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(newBook);
 }
 
-// Write a function that removes a book object from the array at specified index.
+// Removes a book object from the array at the specified index.
 function removeBook(index) {
     myLibrary.splice(index, 1); // Pass in the index and specify just one element to be removed.
     displayBooks();
 }
 
+// Toggles the read status of a book at the specified index.
 function toggleReadStatus(index) {
     myLibrary[index].read = !myLibrary[index].read;
     displayBooks();
 }
 
-// Write a 'displayBooks' function that loops through the 'myLibrary' array and create
-// the elements for each book title, author and pages.
-// Give each book a class of 'book-card'.
-// Create a remove button for each card that calls the remove book function with the
-// books index.
+// Loop through the 'myLibrary' array and create the elements for each book title, author and pages.
+// Create remove button for each card that calls the removeBook function with the books index.
+// Create read/unread button with the text content and border based off the read-status of the book.
 // Append the elements to the DOM, inside of the main grid section.
 function displayBooks() {
     library.innerHTML = '';
@@ -99,8 +89,7 @@ function displayBooks() {
     });
 }
 
-// Add an event listener to submit button on the book form.
-// Call the 'addBookToLibrary' function, passing in form inputs.
+// Calls the 'addBookToLibrary' function, passing in form inputs.
 // Reset the form, close modal and refresh book display.
 bookForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent the form from submitting and refreshing the page
@@ -118,5 +107,11 @@ bookForm.addEventListener('submit', (e) => {
 });
 
 
-addBookToLibrary('Dragon Ball', 'Akira Toriyama', 192, true);
-displayBooks();
+// Show and hide the form element.
+openModal.addEventListener('click', () => {
+    modal.showModal();
+});
+
+closeModal.addEventListener('click', () => {
+    modal.close();
+});
