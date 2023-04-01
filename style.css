@@ -2,6 +2,8 @@
     --white: #fffbfb;
     --grey: #f0eef1;
     --font-grey: #555;
+    --red: #ff0000;
+    --green: #00cc00;
 }
 
 * {
@@ -45,6 +47,13 @@ main {
     padding-top: 3rem;
 }
 
+.read {
+    border-left: 8px solid var(--green); 
+}
+.unread {
+    border-left: 8px solid var(--red);
+}
+
 .book-card {
     display: flex;
     flex-direction: column;
@@ -67,7 +76,7 @@ main {
 }
 .book-card .remove-btn:hover {
     cursor: pointer;
-    color: #f96060;
+    color: var(--red);
     font-weight: bold;
     opacity: 60%;
 }

@@ -77,9 +77,16 @@ function displayBooks() {
 
         const readStatusBtn = document.createElement('button');
         readStatusBtn.classList.add('read-status-btn');
-        readStatusBtn.textContent = book.read ? 'Read!' : 'Unread';
+        if (book.read) {
+            readStatusBtn.textContent = 'Read!';
+            bookCard.classList.add('read');
+        } else {
+            readStatusBtn.textContent = 'Unead';
+            bookCard.classList.add('unread');
+        }
         readStatusBtn.addEventListener('click', () => {
             toggleReadStatus(index);
+            bookCard.classList.toggle('read', myLibrary[index].read);
         })
 
 
@@ -92,9 +99,9 @@ function displayBooks() {
     });
 }
 
-// Add an event listener to the submit button on the add book form.
-// Listen for submit and call the 'addBookToLibrary' function, passing in the form inputs.
-// Close the modal and reset the form.
+// Add an event listener to submit button on the book form.
+// Call the 'addBookToLibrary' function, passing in form inputs.
+// Reset the form, close modal and refresh book display.
 bookForm.addEventListener('submit', (e) => {
     e.preventDefault(); // Prevent the form from submitting and refreshing the page
 
