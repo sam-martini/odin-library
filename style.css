@@ -214,3 +214,14 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+
+@media (max-width: 500px) {
+    .modal {
+        left: 15%;
+        top: 20%;
+        width: 80%;
+        height: 55%;
+        border: 4px solid var(--font-grey);
+    }
+}
