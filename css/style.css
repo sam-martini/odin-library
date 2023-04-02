@@ -92,6 +92,8 @@ main {
 .book-card .read-status-btn {
     position: absolute;
     bottom: 10px;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 
@@ -113,7 +115,7 @@ footer {
     left: 25%;
     top: 20%;
     width: 50%;
-    height: 55%;
+    height: 65%;
     max-width: 450px;
     padding: 2rem 1rem;
     border: 5px solid var(--font-grey);
@@ -132,7 +134,7 @@ footer {
     gap: 20px;
 }
 .book-form input:nth-of-type(3) {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 .book-form input {
     border: none;
@@ -221,7 +223,7 @@ button:hover {
         left: 15%;
         top: 20%;
         width: 80%;
-        height: 55%;
+        height: 75%;
         border: 4px solid var(--font-grey);
     }
 }
