@@ -115,3 +115,9 @@ openModal.addEventListener('click', () => {
 closeModal.addEventListener('click', () => {
     modal.close();
 });
+
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal')) {
+        modal.close();
+    }
+})
